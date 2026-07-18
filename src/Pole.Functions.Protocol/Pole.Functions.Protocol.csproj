@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>Pole.Functions.Protocol</AssemblyName>
+        <RootNamespace>Pole.Functions.Protocol</RootNamespace>
+        <PackageId>Pole.Functions.Protocol</PackageId>
+        <Title>Pole Functions Protocol</Title>
+        <Description>Versioned wire contracts for the Pole Functions Agent protocol.</Description>
+        <PackageTags>pole;functions;serverless;protocol</PackageTags>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+</Project>

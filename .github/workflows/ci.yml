@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test-pack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: global.json
+          cache: true
+          cache-dependency-path: '**/packages.lock.json'
+
+      - name: Restore
+        run: dotnet restore Pole.Functions.slnx --locked-mode
+
+      - name: Build
+        run: dotnet build Pole.Functions.slnx --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test Pole.Functions.slnx --configuration Release --no-build
+
+      - name: Pack
+        run: |
+          dotnet pack src/Pole.Functions.Protocol --configuration Release --no-build --output artifacts
+          dotnet pack src/Pole.Functions.Sdk --configuration Release --no-build --output artifacts
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v7
+        with:
+          name: nuget-packages
+          path: artifacts/*.*nupkg
+          if-no-files-found: error

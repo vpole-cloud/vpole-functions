@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Pole.Functions.Protocol/Pole.Functions.Protocol.csproj" />
+    <Project Path="src/Pole.Functions.Sdk/Pole.Functions.Sdk.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/Pole.Functions.Sample/Pole.Functions.Sample.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Pole.Functions.Tests/Pole.Functions.Tests.csproj" />
+  </Folder>
+</Solution>
